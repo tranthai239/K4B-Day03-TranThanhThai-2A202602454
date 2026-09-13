@@ -41,6 +41,16 @@ cp config/test_cases.example.json config/test_cases.json
 python src/app.py --all
 ```
 
+### Chạy giao diện Library Desk
+
+```bash
+python src/web_app.py
+```
+
+Mở `http://127.0.0.1:8000` để sử dụng giao diện tra cứu sinh viên, xem danh mục sách và gửi yêu cầu mượn/trả/gia hạn/đặt trước qua Agent + MCP.
+
+Sơ đồ kiến trúc và workflow tóm tắt: [docs/agent_architecture_note.svg](docs/agent_architecture_note.svg)
+
 **Kỳ vọng Output màn hình:**
 ```text
 ✅ [MOCK OFFLINE MODE PASS]: Môi trường đã sẵn sàng! 

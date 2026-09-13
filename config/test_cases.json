@@ -1,0 +1,37 @@
+[
+  {
+    "id": "TC01",
+    "type": "direct_query",
+    "question": "Chào bạn, bạn có thể giới thiệu quy định mượn sách và trả sách ở thư viện VinUni không?",
+    "expected_behavior": "Chatbot trả lời trực tiếp từ System Prompt, không cần gọi bất kỳ Tool nào.",
+    "complexity": "Low"
+  },
+  {
+    "id": "TC02",
+    "type": "single_tool_query",
+    "question": "Hãy tra cứu thông tin sách có mã DB101.",
+    "expected_behavior": "Agent nhận diện nhu cầu tra cứu, tự động phát sinh Tool Call 'library_search' với mã DB101.",
+    "complexity": "Medium"
+  },
+  {
+    "id": "TC03",
+    "type": "reservation_booking",
+    "question": "Sinh viên A001 muốn đặt chỗ mượn sách AI205 vì hiện tại sách đang được mượn.",
+    "expected_behavior": "Agent tự động phát sinh Tool Call 'reserve_book' với thông tin sinh viên và mã sách phù hợp.",
+    "complexity": "Medium"
+  },
+  {
+    "id": "TC04",
+    "type": "multi_step_reasoning",
+    "question": "Sinh viên A001 đang mượn AI205 và muốn gia hạn thêm 7 ngày. Hãy kiểm tra tình trạng sách trước rồi gia hạn nếu hợp lệ.",
+    "expected_behavior": "Agent thực hiện chuỗi suy luận ReAct: kiểm tra sách, xác định trạng thái mượn, rồi gọi 'extend_loan' để gia hạn 7 ngày.",
+    "complexity": "High"
+  },
+  {
+    "id": "TC05",
+    "type": "edge_case_handling",
+    "question": "Hãy tìm kiếm sách có mã ZZ999 và cho biết nếu không tìm thấy trong thư viện.",
+    "expected_behavior": "Agent nhận kết quả NOT_FOUND từ Tool và đưa ra phản hồi lịch sự, chính xác không bịa đặt dữ liệu.",
+    "complexity": "Medium"
+  }
+]

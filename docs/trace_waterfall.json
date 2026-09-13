@@ -1,29 +1,251 @@
-[
-  {
-    "step": 1,
-    "query": "Chào bạn, bạn có thể giới thiệu quy chế học vụ cơ bản của Đại học VinUni không?",
-    "action_type": "FINAL_ANSWER",
-    "thought": "Câu hỏi chung về quy chế học vụ, trả lời trực tiếp không cần gọi Tool.",
-    "output": "[Mock Agent Response]: Xin chào! Quy chế học vụ VinUni yêu cầu sinh viên tích lũy tối thiểu 120 tín chỉ và duy trì GPA trên 2.0 để tốt nghiệp.",
-    "latency_ms": 2845.93
+{
+  "summary": {
+    "provider": "GeminiProvider",
+    "model": "gemini-2.5-flash",
+    "total": 5,
+    "completed": 5,
+    "todo": 0,
+    "pass": 5,
+    "error": 0,
+    "live_llm_test_cases": 2,
+    "results": [
+      {
+        "id": "TC01",
+        "status": "PASS",
+        "error": null,
+        "modes": [
+          "static_response"
+        ]
+      },
+      {
+        "id": "TC02",
+        "status": "PASS",
+        "error": null,
+        "modes": [
+          "mcp_fast_path"
+        ]
+      },
+      {
+        "id": "TC03",
+        "status": "PASS",
+        "error": null,
+        "modes": [
+          "live_llm"
+        ]
+      },
+      {
+        "id": "TC04",
+        "status": "PASS",
+        "error": null,
+        "modes": [
+          "live_llm"
+        ]
+      },
+      {
+        "id": "TC05",
+        "status": "PASS",
+        "error": null,
+        "modes": [
+          "mcp_fast_path"
+        ]
+      }
+    ]
   },
-  {
-    "step": 1,
-    "query": "Hãy tra cứu thông tin học vụ của sinh viên SV2026001.",
-    "action_type": "TOOL_EXECUTION",
-    "tool_name": "academic_query",
-    "arguments": {
-      "student_id": "SV2026001"
+  "events": [
+    {
+      "test_case_id": "TC01",
+      "step": 1,
+      "timestamp": "2026-09-13T21:30:22.022+07:00",
+      "action_type": "FINAL_ANSWER",
+      "execution_mode": "static_response",
+      "provider": "local",
+      "model": "static",
+      "thought": "Câu hỏi chung về quy định thư viện, trả lời trực tiếp không cần dữ liệu thời gian thực.",
+      "latency_ms": 0.22,
+      "output": "Thư viện VinUni cho phép sinh viên tra cứu tài liệu, mượn sách còn sẵn, trả sách đang mượn, gia hạn trong thời hạn cho phép và đặt trước sách đang được mượn."
     },
-    "observation": {},
-    "latency_ms": 799.12
-  },
-  {
-    "step": 2,
-    "query": "Hãy tra cứu thông tin học vụ của sinh viên SV2026001.",
-    "action_type": "FINAL_ANSWER",
-    "thought": "Tổng hợp kết quả từ MCP Server thành công.",
-    "output": "Chưa thể trả lời chi tiết do chưa nhận được dữ liệu từ MCP Server (hãy hoàn thành TODO 2.1).",
-    "latency_ms": 10.0
-  }
-]
+    {
+      "test_case_id": "TC02",
+      "step": 1,
+      "timestamp": "2026-09-13T21:30:22.023+07:00",
+      "action_type": "TOOL_EXECUTION",
+      "execution_mode": "mcp_fast_path",
+      "provider": "local",
+      "model": "mcp_fast_path",
+      "thought": "Người dùng muốn tra cứu thông tin sách, gọi library_search theo mã/tên được cung cấp.",
+      "latency_ms": 0.09,
+      "tool_name": "library_search",
+      "arguments": {
+        "book_code": "DB101"
+      },
+      "observation": {
+        "status": "SUCCESS",
+        "book_code": "DB101",
+        "data": {
+          "book_code": "DB101",
+          "title": "Database Systems",
+          "status": "AVAILABLE",
+          "location": "Tầng 2 - Khu A",
+          "borrower": null,
+          "due_date": null,
+          "available_copies": 3
+        }
+      },
+      "resolved_tool": "library_search"
+    },
+    {
+      "test_case_id": "TC02",
+      "step": 2,
+      "timestamp": "2026-09-13T21:30:22.023+07:00",
+      "action_type": "FINAL_ANSWER",
+      "execution_mode": "mcp_fast_path",
+      "provider": "local",
+      "model": "mcp_fast_path",
+      "thought": "Người dùng muốn tra cứu thông tin sách, gọi library_search theo mã/tên được cung cấp.",
+      "latency_ms": 0.09,
+      "output": "Sách Database Systems (mã DB101) đang ở Tầng 2 - Khu A. Trạng thái: AVAILABLE. Số bản sẵn: 3."
+    },
+    {
+      "test_case_id": "TC03",
+      "step": 1,
+      "timestamp": "2026-09-13T21:30:25.514+07:00",
+      "action_type": "TOOL_EXECUTION",
+      "execution_mode": "live_llm",
+      "provider": "GeminiProvider",
+      "model": "gemini-2.5-flash",
+      "thought": "Gemini quyết định gọi công cụ 'reserve_book' với tham số: {\"book_code\": \"AI205\", \"student_id\": \"A001\"}",
+      "latency_ms": 3489.5,
+      "tool_name": "reserve_book",
+      "arguments": {
+        "book_code": "AI205",
+        "student_id": "A001"
+      },
+      "observation": {
+        "status": "SUCCESS",
+        "reservation_id": "RES-A001-AI205",
+        "student_id": "A001",
+        "book_code": "AI205",
+        "message": "Sách Artificial Intelligence Foundations đang được mượn. Hệ thống đã ghi nhận đặt chỗ cho sinh viên A001."
+      },
+      "resolved_tool": null
+    },
+    {
+      "test_case_id": "TC03",
+      "step": 2,
+      "timestamp": "2026-09-13T21:30:27.641+07:00",
+      "action_type": "FINAL_ANSWER",
+      "execution_mode": "live_llm",
+      "provider": "GeminiProvider",
+      "model": "gemini-2.5-flash",
+      "thought": "Gemini phản hồi trực tiếp bằng văn bản (không cần gọi công cụ).",
+      "latency_ms": 2127.21,
+      "output": "Sinh viên A001 đã đặt chỗ thành công sách AI205 (Artificial Intelligence Foundations). Khi sách có sẵn, bạn sẽ được thông báo."
+    },
+    {
+      "test_case_id": "TC04",
+      "step": 1,
+      "timestamp": "2026-09-13T21:30:30.313+07:00",
+      "action_type": "TOOL_EXECUTION",
+      "execution_mode": "live_llm",
+      "provider": "GeminiProvider",
+      "model": "gemini-2.5-flash",
+      "thought": "Gemini quyết định gọi công cụ 'get_student_status' với tham số: {\"student_id\": \"A001\"}",
+      "latency_ms": 2671.41,
+      "tool_name": "get_student_status",
+      "arguments": {
+        "student_id": "A001"
+      },
+      "observation": {
+        "status": "SUCCESS",
+        "student_id": "A001",
+        "borrowed_books": [
+          "AI205"
+        ],
+        "reserved_books": [
+          "DB101",
+          "AI205"
+        ],
+        "loan_history": [
+          {
+            "book_code": "AI205",
+            "status": "BORROWED",
+            "due_date": "2026-09-20"
+          }
+        ],
+        "overdue_books": [],
+        "message": "Sinh viên A001:\n- Đang mượn (1): Artificial Intelligence Foundations\n- Đặt trước (2): Database Systems, Artificial Intelligence Foundations\n- Quá hạn (0): Không có"
+      },
+      "resolved_tool": null
+    },
+    {
+      "test_case_id": "TC04",
+      "step": 2,
+      "timestamp": "2026-09-13T21:30:33.158+07:00",
+      "action_type": "TOOL_EXECUTION",
+      "execution_mode": "live_llm",
+      "provider": "GeminiProvider",
+      "model": "gemini-2.5-flash",
+      "thought": "Gemini quyết định gọi công cụ 'extend_loan' với tham số: {\"book_code\": \"AI205\", \"student_id\": \"A001\", \"days\": 7}",
+      "latency_ms": 2843.82,
+      "tool_name": "extend_loan",
+      "arguments": {
+        "book_code": "AI205",
+        "student_id": "A001",
+        "days": 7
+      },
+      "observation": {
+        "status": "SUCCESS",
+        "student_id": "A001",
+        "book_code": "AI205",
+        "days_extended": 7,
+        "new_due_date": "2026-09-27",
+        "message": "Đã gia hạn 7 ngày cho sinh viên A001 đối với sách Artificial Intelligence Foundations."
+      },
+      "resolved_tool": null
+    },
+    {
+      "test_case_id": "TC04",
+      "step": 3,
+      "timestamp": "2026-09-13T21:30:35.551+07:00",
+      "action_type": "FINAL_ANSWER",
+      "execution_mode": "live_llm",
+      "provider": "GeminiProvider",
+      "model": "gemini-2.5-flash",
+      "thought": "Gemini phản hồi trực tiếp bằng văn bản (không cần gọi công cụ).",
+      "latency_ms": 2392.38,
+      "output": "Sinh viên A001 đang mượn sách AI205 (Artificial Intelligence Foundations) và đã được gia hạn thêm 7 ngày. Ngày trả mới là 2026-09-27."
+    },
+    {
+      "test_case_id": "TC05",
+      "step": 1,
+      "timestamp": "2026-09-13T21:30:35.552+07:00",
+      "action_type": "TOOL_EXECUTION",
+      "execution_mode": "mcp_fast_path",
+      "provider": "local",
+      "model": "mcp_fast_path",
+      "thought": "Người dùng muốn tra cứu thông tin sách, gọi library_search theo mã/tên được cung cấp.",
+      "latency_ms": 0.23,
+      "tool_name": "library_search",
+      "arguments": {
+        "book_code": "ZZ999"
+      },
+      "observation": {
+        "status": "NOT_FOUND",
+        "message": "Không tìm thấy sách có mã hoặc tên 'ZZ999' trong thư viện."
+      },
+      "resolved_tool": "library_search"
+    },
+    {
+      "test_case_id": "TC05",
+      "step": 2,
+      "timestamp": "2026-09-13T21:30:35.552+07:00",
+      "action_type": "FINAL_ANSWER",
+      "execution_mode": "mcp_fast_path",
+      "provider": "local",
+      "model": "mcp_fast_path",
+      "thought": "Người dùng muốn tra cứu thông tin sách, gọi library_search theo mã/tên được cung cấp.",
+      "latency_ms": 0.23,
+      "output": "Không tìm thấy sách có mã hoặc tên 'ZZ999' trong thư viện."
+    }
+  ]
+}

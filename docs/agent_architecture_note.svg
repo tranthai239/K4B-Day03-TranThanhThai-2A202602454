@@ -1,0 +1,285 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 1640" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <linearGradient id="hdg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7a1f2b"/>
+      <stop offset="100%" stop-color="#a93226"/>
+    </linearGradient>
+    <linearGradient id="agentGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1d4ed8"/>
+      <stop offset="100%" stop-color="#1e40af"/>
+    </linearGradient>
+    <linearGradient id="mcpGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0d9488"/>
+      <stop offset="100%" stop-color="#0f766e"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#6b7280"/>
+    </marker>
+    <marker id="arrowRed" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/>
+    </marker>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#00000022"/>
+    </filter>
+    <style>
+      .t { fill: #111827; }
+      .m { fill: #6b7280; }
+      .mono { font-family: Consolas, 'Courier New', monospace; }
+    </style>
+  </defs>
+
+  <!-- ===== Nền ===== -->
+  <rect width="1100" height="1640" fill="#f6f7f9"/>
+
+  <!-- ===== HEADER ===== -->
+  <rect x="0" y="0" width="1100" height="140" fill="url(#hdg)"/>
+  <text x="550" y="52" text-anchor="middle" fill="#ffffff" font-size="28" font-weight="700">TRỢ LÝ QUẢN LÝ THƯ VIỆN VINUNI — REACT AGENT + MCP</text>
+  <text x="550" y="84" text-anchor="middle" fill="#fdecec" font-size="15">Sơ đồ kiến trúc &amp; ghi chú thiết kế · Bài Lab 3: Chatbot vs ReAct Agent</text>
+  <text x="550" y="112" text-anchor="middle" fill="#ffffff" font-size="13">Học viên: Trần Thanh Thái · MSSV: 2A202602454 · Khoá 4</text>
+
+  <!-- ================================================================ -->
+  <!-- 1. ĐỀ TÀI & LÝ DO -->
+  <!-- ================================================================ -->
+  <g>
+    <rect x="40" y="160" width="1020" height="44" rx="8" fill="#1f2937"/>
+    <circle cx="64" cy="182" r="12" fill="#b91c1c"/>
+    <text x="64" y="187" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">1</text>
+    <text x="88" y="188" fill="#ffffff" font-size="17" font-weight="700">ĐỀ TÀI LỰA CHỌN &amp; LÝ DO</text>
+
+    <rect x="40" y="216" width="500" height="196" rx="10" fill="#ffffff" stroke="#e5e7eb" filter="url(#shadow)"/>
+    <rect x="40" y="216" width="500" height="40" rx="10" fill="#fef2f2"/>
+    <rect x="40" y="246" width="500" height="10" fill="#fef2f2"/>
+    <text x="60" y="242" fill="#b91c1c" font-size="15" font-weight="700">🎯 ĐỀ TÀI ĐÃ CHỌN</text>
+    <text x="60" y="292" class="t" font-size="20" font-weight="700">Trợ lý Quản lý Thư viện &amp; Tài liệu</text>
+    <text x="60" y="316" class="m" font-size="13">Hỗ trợ sinh viên tra cứu, mượn, trả, gia hạn và</text>
+    <text x="60" y="334" class="m" font-size="13">đặt trước tài liệu tại thư viện VinUni.</text>
+    <text x="60" y="368" class="t" font-size="13" font-weight="700">Đặc điểm bài toán</text>
+    <text x="60" y="388" class="m" font-size="12.5">• Nhiều nghiệp vụ có trình tự nối tiếp nhau.</text>
+    <text x="60" y="405" class="m" font-size="12.5">• Cần dữ liệu thời gian thực (tránh ảo giác).</text>
+
+    <rect x="560" y="216" width="500" height="196" rx="10" fill="#ffffff" stroke="#e5e7eb" filter="url(#shadow)"/>
+    <rect x="560" y="216" width="500" height="40" rx="10" fill="#eff6ff"/>
+    <rect x="560" y="246" width="500" height="10" fill="#eff6ff"/>
+    <text x="580" y="242" fill="#2563eb" font-size="15" font-weight="700">💡 VÌ SAO CHỌN ĐỀ TÀI NÀY?</text>
+    <text x="580" y="282" class="t" font-size="13.5">Thư viện là tác vụ quen thuộc, đủ nghiệp vụ để</text>
+    <text x="580" y="301" class="t" font-size="13.5">minh hoạ trọn vẹn chu trình ReAct mà vẫn dễ</text>
+    <text x="580" y="320" class="t" font-size="13.5">kiểm chứng: mỗi bước đều có dữ liệu xác định.</text>
+    <text x="580" y="356" class="t" font-size="13.5" font-weight="700">Giá trị Agent mang lại:</text>
+    <text x="580" y="378" class="m" font-size="12.5">• Tự chọn đúng tool theo ý định người dùng.</text>
+    <text x="580" y="396" class="m" font-size="12.5">• Trả lời dựa trên Observation, không bịa đặt.</text>
+  </g>
+
+  <!-- ================================================================ -->
+  <!-- 2. VÌ SAO REACT PHÙ HỢP -->
+  <!-- ================================================================ -->
+  <g>
+    <rect x="40" y="432" width="1020" height="44" rx="8" fill="#1f2937"/>
+    <circle cx="64" cy="454" r="12" fill="#2563eb"/>
+    <text x="64" y="459" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">2</text>
+    <text x="88" y="460" fill="#ffffff" font-size="17" font-weight="700">VÌ SAO REACT AGENT PATTERN PHÙ HỢP VỚI BÀI TOÁN NÀY?</text>
+
+    <!-- 4 mini cards -->
+    <g>
+      <rect x="40" y="488" width="240" height="120" rx="10" fill="#ffffff" stroke="#e5e7eb" filter="url(#shadow)"/>
+      <text x="160" y="520" text-anchor="middle" font-size="30">🧩</text>
+      <text x="160" y="550" text-anchor="middle" class="t" font-size="13.5" font-weight="700">Multi-step</text>
+      <text x="160" y="570" text-anchor="middle" class="m" font-size="12">Kiểm tra SV → tra cứu sách</text>
+      <text x="160" y="588" text-anchor="middle" class="m" font-size="12">→ thực hiện nghiệp vụ.</text>
+
+      <rect x="300" y="488" width="240" height="120" rx="10" fill="#ffffff" stroke="#e5e7eb" filter="url(#shadow)"/>
+      <text x="420" y="520" text-anchor="middle" font-size="30">🛠️</text>
+      <text x="420" y="550" text-anchor="middle" class="t" font-size="13.5" font-weight="700">Tool Interaction</text>
+      <text x="420" y="570" text-anchor="middle" class="m" font-size="12">Cần gọi MCP để đọc dữ liệu</text>
+      <text x="420" y="588" text-anchor="middle" class="m" font-size="12">thư viện theo thời gian thực.</text>
+
+      <rect x="560" y="488" width="240" height="120" rx="10" fill="#ffffff" stroke="#e5e7eb" filter="url(#shadow)"/>
+      <text x="680" y="520" text-anchor="middle" font-size="30">🔀</text>
+      <text x="680" y="550" text-anchor="middle" class="t" font-size="13.5" font-weight="700">Dynamic Decision</text>
+      <text x="680" y="570" text-anchor="middle" class="m" font-size="12">Quyết định phụ thuộc trạng</text>
+      <text x="680" y="588" text-anchor="middle" class="m" font-size="12">thái sách / sinh viên thực tế.</text>
+
+      <rect x="820" y="488" width="240" height="120" rx="10" fill="#ffffff" stroke="#e5e7eb" filter="url(#shadow)"/>
+      <text x="940" y="520" text-anchor="middle" font-size="30">🎯</text>
+      <text x="940" y="550" text-anchor="middle" class="t" font-size="13.5" font-weight="700">Long Horizon Goal</text>
+      <text x="940" y="570" text-anchor="middle" class="m" font-size="12">Duy trì mục tiêu qua nhiều</text>
+      <text x="940" y="588" text-anchor="middle" class="m" font-size="12">lượt cho tới kết quả cuối.</text>
+    </g>
+  </g>
+
+  <!-- ================================================================ -->
+  <!-- 3. AGENTIC FIT — 4 TIÊU CHÍ (THANG 5) -->
+  <!-- ================================================================ -->
+  <g>
+    <rect x="40" y="628" width="1020" height="44" rx="8" fill="#1f2937"/>
+    <circle cx="64" cy="650" r="12" fill="#d97706"/>
+    <text x="64" y="655" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">3</text>
+    <text x="88" y="656" fill="#ffffff" font-size="17" font-weight="700">AGENTIC FIT SCORING MATRIX — 4 TIÊU CHÍ (THANG ĐIỂM 5)</text>
+
+    <rect x="40" y="684" width="1020" height="280" rx="10" fill="#ffffff" stroke="#e5e7eb" filter="url(#shadow)"/>
+
+    <!-- Thanh điểm: Multi-step 4/5 -->
+    <text x="70" y="724" class="t" font-size="14.5" font-weight="700">1. Multi-step Reasoning</text>
+    <rect x="70" y="736" width="600" height="20" rx="10" fill="#eef2f7"/>
+    <rect x="70" y="736" width="480" height="20" rx="10" fill="#2563eb"/>
+    <text x="690" y="752" class="t" font-size="14" font-weight="700">4 / 5</text>
+    <text x="70" y="776" class="m" font-size="12.5">Nhiều bước nối tiếp: xác định sinh viên → kiểm tra trạng thái mượn/đặt trước → thực hiện hành động.</text>
+
+    <!-- Thanh điểm: Tool Interaction 5/5 -->
+    <text x="70" y="812" class="t" font-size="14.5" font-weight="700">2. Tool Interaction</text>
+    <rect x="70" y="824" width="600" height="20" rx="10" fill="#eef2f7"/>
+    <rect x="70" y="824" width="600" height="20" rx="10" fill="#16a34a"/>
+    <text x="690" y="840" class="t" font-size="14" font-weight="700">5 / 5</text>
+    <text x="70" y="864" class="m" font-size="12.5">Bắt buộc gọi tool bên ngoài để tra cứu sách, trạng thái sinh viên và xử lý nghiệp vụ thư viện.</text>
+
+    <!-- Thanh điểm: Dynamic Decision 4/5 -->
+    <text x="70" y="900" class="t" font-size="14.5" font-weight="700">3. Dynamic Decision</text>
+    <rect x="70" y="912" width="600" height="20" rx="10" fill="#eef2f7"/>
+    <rect x="70" y="912" width="480" height="20" rx="10" fill="#d97706"/>
+    <text x="690" y="928" class="t" font-size="14" font-weight="700">4 / 5</text>
+    <text x="70" y="952" class="m" font-size="12.5">Quyết định theo trạng thái thực tế: sách còn sẵn hay đã mượn, cần gia hạn hay đặt trước hay không.</text>
+
+    <!-- Tổng điểm -->
+    <rect x="760" y="710" width="270" height="220" rx="10" fill="#fef2f2" stroke="#fecaca"/>
+    <text x="895" y="746" text-anchor="middle" class="t" font-size="14" font-weight="700">TỔNG ĐIỂM</text>
+    <text x="895" y="792" text-anchor="middle" fill="#b91c1c" font-size="40" font-weight="800">17 / 20</text>
+    <text x="895" y="826" text-anchor="middle" class="t" font-size="12.5" font-weight="700">4. Long Horizon Goal — 4/5</text>
+    <text x="895" y="856" text-anchor="middle" class="m" font-size="12">Duy trì mục tiêu xuyên suốt nhiều</text>
+    <text x="895" y="874" text-anchor="middle" class="m" font-size="12">lượt cho tới phản hồi cuối.</text>
+    <text x="895" y="908" text-anchor="middle" fill="#16a34a" font-size="13" font-weight="700">✓ &gt; 12/20 ⇒ Phù hợp Agentic</text>
+  </g>
+
+  <!-- ================================================================ -->
+  <!-- 4. KIẾN TRÚC AGENT -->
+  <!-- ================================================================ -->
+  <g>
+    <rect x="40" y="984" width="1020" height="44" rx="8" fill="#1f2937"/>
+    <circle cx="64" cy="1006" r="12" fill="#0d9488"/>
+    <text x="64" y="1011" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">4</text>
+    <text x="88" y="1012" fill="#ffffff" font-size="17" font-weight="700">KIẾN TRÚC AGENT &amp; LUỒNG XỬ LÝ</text>
+
+    <!-- User -->
+    <rect x="40" y="1068" width="180" height="84" rx="10" fill="#ffffff" stroke="#e5e7eb" filter="url(#shadow)"/>
+    <text x="130" y="1100" text-anchor="middle" font-size="24">👤</text>
+    <text x="130" y="1124" text-anchor="middle" class="t" font-size="14" font-weight="700">Người dùng</text>
+    <text x="130" y="1142" text-anchor="middle" class="m" font-size="11.5">Sinh viên nhập yêu cầu</text>
+
+    <!-- Arrow user -> agent -->
+    <line x1="220" y1="1110" x2="282" y2="1110" stroke="#6b7280" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="251" y="1100" text-anchor="middle" class="m" font-size="11">query</text>
+
+    <!-- ReAct Agent box -->
+    <rect x="290" y="1040" width="470" height="300" rx="12" fill="#ffffff" stroke="#1d4ed8" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="290" y="1040" width="470" height="40" rx="12" fill="url(#agentGrad)"/>
+    <rect x="290" y="1068" width="470" height="12" fill="url(#agentGrad)"/>
+    <text x="525" y="1066" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="700">REACT AGENT (LLM — Gemini / OpenAI)</text>
+
+    <text x="525" y="1100" text-anchor="middle" class="m" font-size="12">Vòng lặp suy luận Thought → Action → Observation:</text>
+
+    <!-- Thought -->
+    <rect x="308" y="1116" width="120" height="56" rx="8" fill="#eff6ff" stroke="#bfdbfe"/>
+    <text x="368" y="1140" text-anchor="middle" class="t" font-size="13.5" font-weight="700">🧠 Thought</text>
+    <text x="368" y="1158" text-anchor="middle" class="m" font-size="11">Suy luận cần gì</text>
+
+    <!-- Action -->
+    <rect x="465" y="1116" width="120" height="56" rx="8" fill="#fef2f2" stroke="#fecaca"/>
+    <text x="525" y="1140" text-anchor="middle" class="t" font-size="13.5" font-weight="700">⚡ Action</text>
+    <text x="525" y="1158" text-anchor="middle" class="m" font-size="11">Gọi tool phù hợp</text>
+
+    <!-- Observation -->
+    <rect x="622" y="1116" width="120" height="56" rx="8" fill="#f0fdfa" stroke="#99f6e4"/>
+    <text x="682" y="1140" text-anchor="middle" class="t" font-size="13.5" font-weight="700">👁️ Observation</text>
+    <text x="682" y="1158" text-anchor="middle" class="m" font-size="11">Kết quả từ MCP</text>
+
+    <!-- Arrows between loop nodes -->
+    <line x1="428" y1="1144" x2="463" y2="1144" stroke="#6b7280" stroke-width="2" marker-end="url(#arrow)"/>
+    <line x1="585" y1="1144" x2="620" y2="1144" stroke="#6b7280" stroke-width="2" marker-end="url(#arrow)"/>
+
+    <!-- Return arrow Observation -> Thought -->
+    <path d="M682 1172 C 682 1212, 368 1212, 368 1174" fill="none" stroke="#b91c1c" stroke-width="2" marker-end="url(#arrowRed)"/>
+    <text x="525" y="1202" text-anchor="middle" fill="#b91c1c" font-size="11" font-weight="700">Observation quay lại LLM (lặp tới khi có Final Answer)</text>
+
+    <!-- Final Answer -->
+    <rect x="455" y="1250" width="150" height="52" rx="8" fill="#16a34a"/>
+    <text x="530" y="1272" text-anchor="middle" fill="#ffffff" font-size="13.5" font-weight="700">🏁 Final Answer</text>
+    <text x="530" y="1290" text-anchor="middle" fill="#d1fae5" font-size="11">Tổng hợp trả lời</text>
+    <line x1="530" y1="1226" x2="530" y2="1248" stroke="#16a34a" stroke-width="2" marker-end="url(#arrow)"/>
+
+    <!-- Trace note inside agent -->
+    <text x="525" y="1326" text-anchor="middle" class="m" font-size="11">📊 Mỗi bước ghi Waterfall Trace (thought · tool · latency thật)</text>
+
+    <!-- Arrow agent -> MCP (tool call) -->
+    <line x1="760" y1="1110" x2="812" y2="1110" stroke="#0d9488" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="786" y="1100" text-anchor="middle" class="m" font-size="10.5">tool call</text>
+    <!-- Arrow MCP -> agent (result) -->
+    <line x1="812" y1="1160" x2="760" y2="1160" stroke="#0d9488" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="786" y="1182" text-anchor="middle" class="m" font-size="10.5">result</text>
+
+    <!-- MCP Server -->
+    <rect x="820" y="1050" width="240" height="130" rx="12" fill="#ffffff" stroke="#0d9488" stroke-width="2" filter="url(#shadow)"/>
+    <rect x="820" y="1050" width="240" height="40" rx="12" fill="url(#mcpGrad)"/>
+    <rect x="820" y="1078" width="240" height="12" fill="url(#mcpGrad)"/>
+    <text x="940" y="1076" text-anchor="middle" fill="#ffffff" font-size="14.5" font-weight="700">MCP SERVER</text>
+    <text x="940" y="1108" text-anchor="middle" class="t" font-size="12">JSON-RPC 2.0 Dispatcher</text>
+    <text x="940" y="1128" text-anchor="middle" class="m" font-size="11">Đăng ký &amp; điều phối 6 tool</text>
+    <text x="940" y="1148" text-anchor="middle" class="m" font-size="11">Trả Observation cho Agent</text>
+
+    <!-- MCP -> tools box pointer -->
+    <line x1="940" y1="1180" x2="940" y2="1208" stroke="#0d9488" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="955" y="1198" class="m" font-size="10.5">gọi tool</text>
+    <rect x="820" y="1212" width="240" height="48" rx="8" fill="#f0fdfa" stroke="#99f6e4"/>
+    <text x="940" y="1232" text-anchor="middle" class="t" font-size="13" font-weight="700">6 CÔNG CỤ (Tools)</text>
+    <text x="940" y="1250" text-anchor="middle" class="m" font-size="11">chi tiết ở mục ⑤ bên dưới</text>
+  </g>
+
+  <!-- ================================================================ -->
+  <!-- 5. CÔNG CỤ & TÁC DỤNG -->
+  <!-- ================================================================ -->
+  <g>
+    <rect x="40" y="1380" width="1020" height="44" rx="8" fill="#1f2937"/>
+    <circle cx="64" cy="1402" r="12" fill="#7c3aed"/>
+    <text x="64" y="1407" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">5</text>
+    <text x="88" y="1408" fill="#ffffff" font-size="17" font-weight="700">CÔNG CỤ (TOOLS) &amp; TÁC DỤNG TỪNG TOOL</text>
+
+    <!-- Row 1 -->
+    <g>
+      <rect x="40" y="1436" width="330" height="88" rx="10" fill="#ffffff" stroke="#e5e7eb" filter="url(#shadow)"/>
+      <rect x="40" y="1436" width="6" height="88" rx="3" fill="#2563eb"/>
+      <text x="60" y="1462" class="mono" fill="#1d4ed8" font-size="14" font-weight="700">library_search</text>
+      <text x="60" y="1484" class="t" font-size="12">Tra cứu sách theo mã/tên, vị trí &amp;</text>
+      <text x="60" y="1502" class="t" font-size="12">tình trạng mượn/trả của tài liệu.</text>
+
+      <rect x="385" y="1436" width="330" height="88" rx="10" fill="#ffffff" stroke="#e5e7eb" filter="url(#shadow)"/>
+      <rect x="385" y="1436" width="6" height="88" rx="3" fill="#16a34a"/>
+      <text x="405" y="1462" class="mono" fill="#15803d" font-size="14" font-weight="700">get_student_status</text>
+      <text x="405" y="1484" class="t" font-size="12">Xem sách đang mượn, đặt trước, quá</text>
+      <text x="405" y="1502" class="t" font-size="12">hạn của sinh viên theo mã SV.</text>
+
+      <rect x="730" y="1436" width="330" height="88" rx="10" fill="#ffffff" stroke="#e5e7eb" filter="url(#shadow)"/>
+      <rect x="730" y="1436" width="6" height="88" rx="3" fill="#d97706"/>
+      <text x="750" y="1462" class="mono" fill="#b45309" font-size="14" font-weight="700">borrow_book</text>
+      <text x="750" y="1484" class="t" font-size="12">Mượn sách nếu còn sẵn và sinh viên</text>
+      <text x="750" y="1502" class="t" font-size="12">đủ điều kiện.</text>
+    </g>
+
+    <!-- Row 2 -->
+    <g>
+      <rect x="40" y="1534" width="330" height="88" rx="10" fill="#ffffff" stroke="#e5e7eb" filter="url(#shadow)"/>
+      <rect x="40" y="1534" width="6" height="88" rx="3" fill="#b91c1c"/>
+      <text x="60" y="1560" class="mono" fill="#b91c1c" font-size="14" font-weight="700">return_book</text>
+      <text x="60" y="1582" class="t" font-size="12">Trả sách đã mượn và cập nhật trạng</text>
+      <text x="60" y="1600" class="t" font-size="12">thái tài liệu trong thư viện.</text>
+
+      <rect x="385" y="1534" width="330" height="88" rx="10" fill="#ffffff" stroke="#e5e7eb" filter="url(#shadow)"/>
+      <rect x="385" y="1534" width="6" height="88" rx="3" fill="#0d9488"/>
+      <text x="405" y="1560" class="mono" fill="#0f766e" font-size="14" font-weight="700">reserve_book</text>
+      <text x="405" y="1582" class="t" font-size="12">Đặt chỗ mượn sách khi sách đang</text>
+      <text x="405" y="1600" class="t" font-size="12">được người khác mượn.</text>
+
+      <rect x="730" y="1534" width="330" height="88" rx="10" fill="#ffffff" stroke="#e5e7eb" filter="url(#shadow)"/>
+      <rect x="730" y="1534" width="6" height="88" rx="3" fill="#7c3aed"/>
+      <text x="750" y="1560" class="mono" fill="#6d28d9" font-size="14" font-weight="700">extend_loan</text>
+      <text x="750" y="1582" class="t" font-size="12">Gia hạn thời gian mượn sách trong</text>
+      <text x="750" y="1600" class="t" font-size="12">giới hạn cho phép.</text>
+    </g>
+  </g>
+</svg>

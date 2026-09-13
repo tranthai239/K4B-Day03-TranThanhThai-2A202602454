@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VinUni Library Desk</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="VinUni Library Desk home">
+        <span class="brand-mark">VL</span>
+        <span><strong>VinUni</strong><small>Library Desk</small></span>
+      </a>
+      <div class="topbar-meta"><span class="live-dot"></span> MCP online <span class="divider"></span> ReAct ready</div>
+    </header>
+
+    <main class="workspace">
+      <section class="welcome-row">
+        <div>
+          <p class="eyebrow">STUDENT SERVICE / 03</p>
+          <h1>Your library, <em>in motion.</em></h1>
+          <p class="lede">Tra cứu nhanh, hành động gọn. Mọi thay đổi đều đi qua Agent và dữ liệu thư viện.</p>
+        </div>
+        <div class="session-card">
+          <span class="label">ACTIVE STUDENT</span>
+          <div class="session-value"><span id="studentBadge" class="student-badge">--</span><span id="sessionText">Chưa đăng nhập</span></div>
+          <button id="logoutBtn" class="text-button" type="button" hidden>Đăng xuất</button>
+        </div>
+      </section>
+
+      <section class="dashboard-grid">
+        <aside class="sidebar">
+          <div class="panel student-panel">
+            <div class="panel-heading"><span class="section-number">01</span><h2>Student check-in</h2></div>
+            <p class="panel-copy">Nhập mã để xem toàn bộ trạng thái tài liệu của bạn.</p>
+            <form id="studentForm" class="student-form">
+              <label for="studentId">Mã sinh viên</label>
+              <div class="input-row"><input id="studentId" name="studentId" placeholder="A001" autocomplete="off" maxlength="4" required><button class="primary-button" type="submit">Kiểm tra</button></div>
+            </form>
+            <p id="studentError" class="error-text" role="alert"></p>
+            <div id="statusSummary" class="status-summary" hidden>
+              <div><span>Đang mượn</span><strong id="borrowedCount">0</strong></div>
+              <div><span>Đặt trước</span><strong id="reservedCount">0</strong></div>
+              <div class="alert-stat"><span>Quá hạn</span><strong id="overdueCount">0</strong></div>
+            </div>
+          </div>
+
+          <div class="panel shortcuts-panel">
+            <div class="panel-heading"><span class="section-number">02</span><h2>Quick actions</h2></div>
+            <button class="shortcut" data-prompt="Tra cứu theo tên Database Systems" type="button"><span class="shortcut-icon">↗</span><span><strong>Tìm theo tên</strong><small>Database Systems</small></span></button>
+            <button class="shortcut" data-prompt="Thư viện có những cuốn sách nào?" type="button"><span class="shortcut-icon">▦</span><span><strong>Xem danh mục</strong><small>Toàn bộ sách đang có</small></span></button>
+            <button class="shortcut" data-prompt="gia hạn sách AI205 7 ngày" type="button"><span class="shortcut-icon">＋</span><span><strong>Gia hạn sách</strong><small>Gia hạn thêm 7 ngày</small></span></button>
+          </div>
+        </aside>
+
+        <section class="content-column">
+          <div class="assistant-panel">
+            <div class="assistant-header"><div><p class="eyebrow">03 / AGENT CONSOLE</p><h2>Ask the library desk</h2></div><span class="agent-chip"><span class="live-dot"></span> AI + MCP</span></div>
+            <div id="chatLog" class="chat-log" aria-live="polite"><div class="message agent-message"><span class="message-label">LIBRARY AGENT</span><p>Chào bạn. Nhập mã sinh viên để bắt đầu, hoặc hỏi tôi về danh mục sách.</p></div></div>
+            <form id="chatForm" class="chat-form"><input id="chatInput" placeholder="Ví dụ: trả sách AI205 hoặc thư viện có sách gì?" autocomplete="off"><button class="send-button" type="submit" title="Gửi yêu cầu">Gửi <span>↗</span></button></form>
+          </div>
+        </section>
+      </section>
+    </main>
+    <footer class="footer"><span>VINUNI / LIBRARY SERVICES</span><span>Every request leaves a trace <b>✦</b></span></footer>
+  </div>
+  <script src="/app.js"></script>
+</body>
+</html>
